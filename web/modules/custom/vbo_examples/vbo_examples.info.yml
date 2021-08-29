@@ -1,0 +1,7 @@
+name: 'VBO Examples'
+type: module
+description: 'Provides example implementations for views bulk operations.'
+core_version_requirement: 9.x
+package: 'D9-Code-Examples'
+dependencies:
+  - views_bulk_operations

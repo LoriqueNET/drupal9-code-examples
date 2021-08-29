@@ -15,5 +15,5 @@ tasks:
       - '{{.DRUSH}} uli'
   site-install:
     cmds:
-      - '{{.DRUSH}} si --yes --account-name=admin --account-pass=1234'
-      #- '{{.DRUSH}} --yes cim'
+      - '{{.DRUSH}} si --existing-config --yes --account-name=admin --account-pass=1234'
+      - '{{.DRUSH}} --yes cim'
