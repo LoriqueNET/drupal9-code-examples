@@ -9,9 +9,10 @@ I'm going to assume you know how to set up a local server, if not i recommend lo
 To make my life a little easier, i use [gotask](https://taskfile.dev/#/) in this project, because it allows me to give you clear installation instructions. If you don't want to use taskfile, you can look at the [Taskfile.yml](Taskfile.yml) file, to see what task's do what.
 
 ### Installation
-Installation is as easy as running the following two commands. The first runs a site install using the supplied configuration, the second gives you a onetime login to the site. You can also log in using admin/1234 as credentials.
+Installation is as easy as running the following three commands. The first uses composer to install all the required code. The second runs a site install using the supplied configuration, and the third gives you a onetime login to the site. You can also log in using admin/1234 as credentials.
 
 ```shell
+$ composer install
 $ task site-install
 $ task uli
 ```
