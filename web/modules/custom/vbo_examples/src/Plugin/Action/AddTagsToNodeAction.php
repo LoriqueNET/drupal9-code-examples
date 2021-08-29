@@ -9,7 +9,7 @@ use Drupal\views_bulk_operations\Action\ViewsBulkOperationsActionBase;
 use Drupal\Core\Session\AccountInterface;
 
 /**
- * Action description.
+ * VBO Action for adding tags to nodes.
  *
  * @Action(
  *   id = "vbo_examples_add_tags_to_node",
@@ -67,6 +67,9 @@ class AddTagsToNodeAction extends ViewsBulkOperationsActionBase implements Plugi
     return $return_as_object ? $result : $result->isAllowed();
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
     $form['new_tags'] = [
       '#title' => $this->t('New Tags'),
@@ -81,6 +84,9 @@ class AddTagsToNodeAction extends ViewsBulkOperationsActionBase implements Plugi
     return $form;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
     $this->configuration['new_tags'] = $form_state->getValue('new_tags');
   }
