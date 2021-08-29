@@ -1,0 +1,8 @@
+.idea
+.DS_Store
+.valet-env.php
+.env
+/web/drush
+/vendor
+web/modules/contrib
+web/libraries

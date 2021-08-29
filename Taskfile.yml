@@ -1,0 +1,19 @@
+version: '3'
+vars:
+  DRUSH: ./vendor/bin/drush
+env:
+  DB_HOST: 'localhost'
+  DB_USERNAME: 'drupal'
+  DB_PASSWORD: 'drupal'
+
+tasks:
+  drush:
+    cmds:
+      - '{{.DRUSH}} {{.CLI_ARGS}}'
+  uli:
+    cmds:
+      - '{{.DRUSH}} uli'
+  site-install:
+    cmds:
+      - '{{.DRUSH}} si --yes --account-name=admin --account-pass=1234'
+      #- '{{.DRUSH}} --yes cim'
