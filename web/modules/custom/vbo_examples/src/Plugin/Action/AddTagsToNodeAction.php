@@ -26,7 +26,25 @@ class AddTagsToNodeAction extends ViewsBulkOperationsActionBase implements Plugi
     if ($entity instanceof Node) {
       if ($entity->hasField('field_tags')) {
         $tags = $entity->get('field_tags')->getValue();
-        $entity->set('field_tags', array_merge($tags, $this->configuration['new_tags']));
+
+        $flat_tags = [];
+        foreach ($tags as $tag) {
+          $flat_tags[] = $tag['target_id'];
+        }
+
+        foreach ($this->configuration['new_tags'] as $new_tag) {
+          $flat_tags[] = $new_tag['target_id'];
+        }
+
+        $flat_tags = array_unique($flat_tags);
+
+        $new_tags = [];
+        foreach ($flat_tags as $flat_tag) {
+          $new_tags[] = ['target_id' => $flat_tag];
+        }
+
+
+        $entity->set('field_tags', $new_tags);
         $entity->save();
 
         return $this->t('Tags were added to the node.');
