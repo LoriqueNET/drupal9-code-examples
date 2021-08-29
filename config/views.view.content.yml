@@ -1,10 +1,11 @@
-uuid: 29d4c216-b660-4130-b6f3-d5b965152f43
+uuid: 48a3b6c2-17e8-4ad1-a2c7-bb05d5871a13
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - user
+    - views_bulk_operations
 _core:
   default_config_hash: 12Bd0mJQFIaXAkRfMVCAAcZ0oaxm94PoK8oHR9hkLmY
 id: content
@@ -140,22 +141,67 @@ display:
       row:
         type: fields
       fields:
-        node_bulk_form:
-          id: node_bulk_form
-          table: node
-          field: node_bulk_form
-          label: ''
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Views bulk operations'
           exclude: false
           alter:
             alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
           element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
           element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: node_bulk_form
-          entity_type: node
+          batch: true
+          batch_size: 10
+          form_step: true
+          buttons: true
+          clear_on_exposed: true
+          action_title: Action
+          selected_actions:
+            6:
+              action_id: vbo_examples_add_tags_to_node
+              preconfiguration:
+                add_confirmation: false
+          force_selection_info: false
+          plugin_id: views_bulk_operations_bulk_form
         title:
           id: title
           table: node_field_data

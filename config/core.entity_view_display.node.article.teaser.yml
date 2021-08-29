@@ -1,55 +1,32 @@
-uuid: ebd97b87-689e-435a-8063-2c3c78f44a00
+uuid: cce223e2-4d7a-44d8-bc86-23b1911210bb
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.article.body
-    - field.field.node.article.comment
-    - field.field.node.article.field_image
     - field.field.node.article.field_tags
-    - image.style.medium
     - node.type.article
   module:
-    - image
     - text
     - user
-_core:
-  default_config_hash: 4NcL2hSQZBpJbYtNuh5jC6kyQTcAc1m5bQpTegEWEso
 id: node.article.teaser
 targetEntityType: node
 bundle: article
 mode: teaser
 content:
   body:
+    label: hidden
     type: text_summary_or_trimmed
-    weight: 0
-    region: content
+    weight: 101
     settings:
       trim_length: 600
     third_party_settings: {  }
-    label: hidden
-  field_image:
-    type: image
-    weight: -1
     region: content
-    settings:
-      image_style: medium
-      image_link: content
-    third_party_settings: {  }
-    label: hidden
-  field_tags:
-    type: entity_reference_label
-    weight: 10
-    region: content
-    settings:
-      link: true
-    third_party_settings: {  }
-    label: above
   links:
     weight: 100
+    settings: {  }
+    third_party_settings: {  }
     region: content
 hidden:
-  comment: true
-  field_image: true
   field_tags: true
