@@ -1,0 +1,4 @@
+services:
+  logger.channel.audit_log:
+    parent: logger.channel_base
+    arguments: [ 'audit_log' ]

@@ -1,0 +1,20 @@
+<?php
+
+use Drupal\Core\Access\AccessResult;
+
+/**
+ * Implements hook_entity_access().
+ */
+function queue_worker_examples_entity_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account) {
+  $job = [
+    'user' => $account->getAccountName(),
+    'uid' => $account->id(),
+    'entity' => $entity->getEntityTypeId() . ':' . $entity->bundle() . ':' . $entity->id(),
+    'op' => $operation,
+    'timestamp' => Drupal::time()->getCurrentTime(),
+  ];
+
+  Drupal::queue('audit_log')->createItem($job);
+
+  return AccessResult::neutral();
+}
